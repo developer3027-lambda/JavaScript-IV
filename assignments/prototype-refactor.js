@@ -24,21 +24,23 @@ still return what is expected of them.
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
-function GameObject(attrs) {
+class GameObject{
+    constructor(attrs){
     this.createdAt = attrs.createdAt;
     this.name = attrs.name;
     this.dimensions = attrs.dimensions;
   }
-  GameObject.prototype.destroy = function() {
+  destroy(){
     return `${this.name} was removed from the game.`;
   };
+}//closes gameObject Class
   /*
     === CharacterStats ===
     * healthPoints
     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
     * should inherit destroy() from GameObject's prototype
   */
-  function CharacterStats(charAttrs) {
+  function CharacterStats(charAttrs) { //this is a child
     GameObject.call(this, charAttrs);
     this.healthPoints = charAttrs.healthPoints;
   }
